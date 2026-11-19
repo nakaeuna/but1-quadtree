@@ -1,22 +1,22 @@
 # Quadtree 2D Dungeon Explorer
 
-> 2D tile-based game in Go (Ebitengine) featuring Quadtree spatial optimization and BSP procedural dungeon generation.
+> 2D tile-based game in Go and Ebitengine featuring Quadtree spatial optimization and BSP procedural dungeon generation.
 
-![Context](https://img.shields.io/badge/Context-BUT%201%20(S1)-1f883d?style=flat-square)
+![Context](https://img.shields.io/badge/Context-BUT%201-1f883d?style=flat-square)
 ![Go 1.21](https://img.shields.io/badge/Go-1.21-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![Ebitengine](https://img.shields.io/badge/Ebitengine-v2-E6522C?style=flat-square)
 
 ## Overview
 
-Developed in **Go** with **Ebitengine** during BUT 1 (S1 — SAE 1.01), this 2D top-down exploration game uses a **Quadtree** data structure to efficiently load and query large tile maps, extended with **Binary Space Partitioning (BSP)** procedural dungeon generation, teleportation portals, a zoomable minimap camera, and JSON save/load support.
+2D top-down exploration game built in **Go** with **Ebitengine**. It uses a **Quadtree** data structure to load and query large tile maps efficiently, along with **Binary Space Partitioning (BSP)** procedural dungeon generation, teleportation portals, a zoomable minimap camera, and JSON save and load support.
 
 ## Features
 
-- **Core Quadtree engine**: tile map loading from files (`readFromFile`, `updateFromFile`), Quadtree construction (`MakeFromArray`), and viewport querying (`GetContent`).
-- **Procedural dungeons (`FloorKind = 3`)**: random dungeon rooms & corridors generated via a **BSP tree**, interactive tiles/collisions, and **teleportation portals**.
-- **UI & persistence**: main menu, JSON save/load system storing player position and floor state.
-- **Camera zoom & debug overlay**: zoom out to use the camera as a minimap and toggle debug info.
-- **Experimental (`FloorKind = 4`)**: on-the-fly infinite world generation *(work in progress)*.
+- **Core Quadtree engine:** Loads tile maps from files, builds a Quadtree (`MakeFromArray`), and queries only visible viewport tiles (`GetContent`).
+- **Procedural dungeons (`FloorKind = 3`):** Generates random dungeon rooms and corridors with a BSP tree, interactive tiles, collisions, and teleportation portals.
+- **Interface and persistence:** Main menu and JSON save and load system for player position and floor state.
+- **Camera zoom and debug overlay:** Zoom out to view the map as a minimap and toggle debug information.
+- **Experimental (`FloorKind = 4`):** On-the-fly infinite world generation (work in progress).
 
 ## Controls
 
@@ -28,7 +28,7 @@ Developed in **Go** with **Ebitengine** during BUT 1 (S1 — SAE 1.01), this 2D 
 | Toggle debug overlay | `F1` |
 | Camera zoom out / in | `F2` / `F3` |
 
-## Tech Stack
+## Technology Stack
 
 - **Go 1.21**
 - **Ebitengine v2** (`github.com/hajimehoshi/ebiten/v2`)
@@ -37,17 +37,17 @@ Developed in **Go** with **Ebitengine** during BUT 1 (S1 — SAE 1.01), this 2D 
 ## Project Structure
 
 ```text
-├── assets/                             # Sprites, tile sheets & font loading
-├── camera/                             # Viewport & zoom camera
-├── character/                          # Player state, movement & rendering
-├── cmd/                                # Application entry point & config.json
+├── assets/                             # Sprites, tile sheets, and font loading
+├── camera/                             # Viewport and zoom camera
+├── character/                          # Player state, movement, and rendering
+├── cmd/                                # Application entry point and configuration
 ├── configuration/                      # Runtime configuration
 ├── dungeon/                            # BSP tree procedural dungeon generator
-├── floor/                              # Map loading, collisions & unit tests
-├── floor-files/                        # Sample maps & save files
+├── floor/                              # Map loading, collisions, and unit tests
+├── floor-files/                        # Sample maps and save files
 ├── game/                               # Main Ebitengine game loop
 ├── quadtree/                           # Quadtree spatial data structure
-└── ui/                                 # Menus & HUD
+└── ui/                                 # Menus and heads-up display
 ```
 
 ## Getting Started
@@ -69,11 +69,10 @@ cd cmd; go build .; .\cmd.exe
 
 ## Known Limitations
 
-- Extreme camera zoom-out levels (`> 6`) on large maps can reduce FPS or trigger an Ebitengine rendering error.
+- Extreme camera zoom-out levels (`> 6`) on large maps can reduce frame rate or cause an Ebitengine rendering error.
 - `FloorKind = 4` (infinite procedural expansion) is still experimental.
-- Teleporters may stop working when resuming a level loaded from a save file, and rare wall-clipping edge cases can occur right after teleportation.
+- Teleporters may stop working after loading a saved floor, and rare wall-clipping cases can occur right after teleportation.
 
-## Contributors
+## License
 
-- Léa Cortet
-- Sacha Chauvel
+This project is distributed under the **GNU General Public License v3.0** (inherited from the original starter codebase). See [`LICENSE`](LICENSE) for details.
