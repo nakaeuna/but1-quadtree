@@ -1,0 +1,18 @@
+{
+    "DebugMode": false,
+    "NumTileX": 16,
+    "NumTileY": 16,
+    "TileSize": 16,
+    "NumCharacterAnimImages": 4,
+    "NumFramePerCharacterAnimImage": 5,
+    "NumTileForDebug": 6,
+    "CameraMode": 1,
+    "FloorKind": 3,
+    "FilePath": "../floor-files/",
+    "FloorFile": "validation",
+    "SaveFile": "autoSave",
+    "FixedGenWidth": 64,
+    "FixedGenHeight": 64,
+    "Seed": "lea",
+    "AlgoGeneration": 0
+}
